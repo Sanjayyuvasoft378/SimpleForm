@@ -1,0 +1,50 @@
+
+.header{
+   margin-top: 20px;
+   background-color: cadetblue;
+   max-width: 200%;
+   text-align: center;
+}
+.coloum {
+    max-width: 100%;
+}
+.form-control {
+    max-width: 350px;
+
+}
+.form-group{
+    width: 200%;
+}
+.image {
+    width:150%;
+    float: right;
+    margin-left: 100px;
+}
+.rowC{
+    display:flex;
+     flex-direction:row;
+     max-width: 100%;
+     min-width: 100%;
+    }
+
+.form-body button{
+   margin-left: 130px;
+   margin-top: 10px;
+}
+
+.form-body label{
+    width: 55%;
+    margin-left: 40px;
+    display: list-item;
+}
+
+.header{
+    width: 64%;
+    margin-left: 17%;
+}
+
+.addnewuser_btn{
+    float: right;
+    margin-top: 20px;
+}
+
