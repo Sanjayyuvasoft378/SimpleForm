@@ -1,48 +1,76 @@
-import React from 'react'
-import '../registerCpm/Register.css'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
-function Dashboard() {
-  const navigater = useNavigate();
-  const Token = localStorage.getItem('token');
-  axios.get("https://react-rails-api-demo.herokuapp.com/api/v1/users",
-   {headers: { Authorization: `Bearer ${Token}`}})
-  .then((res) => console.log("first",res))
-  return (
-    
-    <div className='header'>
+import React, { useState } from "react";
+import "../registerCpm/Register.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import PaginationPage from "../PaginationPage";
 
-  <button className='addnewuser_btn'>Add User</button>
+
+function Dashboard() {
+  const Navigate = useNavigate();
+  const [data, setData] = useState();
+  const Token = localStorage.getItem("token");
+  axios
+    .get("https://react-rails-api-demo.herokuapp.com/api/v1/users", {
+      headers: { Authorization: `Bearer ${Token}` },
+    })
+    .then((res) => {
+      setData(res.data);
+    });
+  return (
+    <div className="header">
+      <button onClick={()=> Navigate('/addpost')} className="addnewuser_btn">Add User</button>
       <h1>User Dashboard</h1>
-      <table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  {posts?.posts?.map((item, index) => {
+      
+      <table className="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Email</th>
+            <th scope="col">created_at</th>
+            <th scope="col">updated_at</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        {data?.users?.map((item, index) => {
           return (
             <tbody>
-            <tr key={index}>
-              <td><p>{item.id}</p></td>
-              <td><p>{item.user_id}</p></td>
-              <td><p>{item.title}</p></td>
-              <td><p>{item.description}</p></td>
-             <td> <button style={{backgroundColor:"green",padding:"7px"}}>View</button>&nbsp;
-              <button style={{backgroundColor:"yellow",padding:"7px"}} >Edit</button> &nbsp;
-              <button style={{backgroundColor:"red",padding:"7px"}} >delete</button>&nbsp;
-              </td>
-            </tr>
+              <tr key={index}>
+                <td>
+                  <p>{item.id}</p>
+                </td>
+                <td>
+                  <p>{item.email}</p>
+                </td>
+                <td>
+                  <p>{item.created_at}</p>
+                </td>
+                <td>
+                  <p>{item.updated_at}</p>
+                </td>
+                <td>
+                  {" "}
+                  <button style={{ backgroundColor: "green", padding: "7px" }}>
+                    View
+                  </button>
+                  &nbsp;
+                  <button style={{ backgroundColor: "yellow", padding: "7px" }}>
+                    Edit
+                  </button>{" "}
+                  &nbsp;
+                  <button style={{ backgroundColor: "red", padding: "7px" }}>
+                    delete
+                  </button>
+                  &nbsp;
+                </td>
+              </tr>
             </tbody>
           );
+          
         })}
-</table>
+      </table>
+      <PaginationPage />
     </div>
-  )
+  );
 }
 
-export default Dashboard
+export default Dashboard;

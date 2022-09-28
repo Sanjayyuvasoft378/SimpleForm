@@ -1,21 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import axios from 'axios';
+import { useEffect } from 'react';
+import { toast, ToastContainer } from "react-toastify";
 
 function Login() {
     
-
+const [user,setUser] = useState();
     const onSubmit = (data) =>{
         console.log("ccdcdcd",data)
         axios.
         post('https://react-rails-api-demo.herokuapp.com/api/v1/signin',{user:data})
         .then((res) => {console.log("first",res.data)
+        setUser(res.data)
         localStorage.setItem("user-info", JSON.stringify(res.data));
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user_id", res.data.user.id);})
-
+    
     }
+    console.log("check response",user)
+
+    useEffect(() => {
+      if (user?.Error && user?.Error.length !== 0) {
+        toast.error(`${user.Error}`,
+            { position: toast.POSITION.TOP_RIGHT })
+    } else {
+        if (user &&user.length !== 0 ) {
+            toast.success(`${user.message[0]}`,
+                { position: toast.POSITION.TOP_RIGHT })
+                window.location.href = "/dashboard";
+        }
+   }
+}, [user])
     const {register, handleSubmit, formState:{errors}} = useForm()
+    
   return (
     <div>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />  

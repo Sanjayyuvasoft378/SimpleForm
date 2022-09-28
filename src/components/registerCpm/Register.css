@@ -32,10 +32,11 @@
    margin-top: 10px;
 }
 
-.form-body label{
+.form-body label {
     width: 55%;
-    margin-left: 40px;
+    margin-left: 0px;
     display: list-item;
+    font-size: x-large;
 }
 
 .header{
@@ -47,4 +48,8 @@
     float: right;
     margin-top: 20px;
 }
-
+.h3, h3 {
+    font-size: 1.75rem;
+    background: cadetblue;
+    margin-left: -120px;
+}
