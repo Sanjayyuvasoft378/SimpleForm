@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import axios from 'axios';
 import { useEffect } from 'react';
 import { toast, ToastContainer } from "react-toastify";
+import './login.css';
 
 function Login() {
     
@@ -10,7 +11,7 @@ const [user,setUser] = useState();
     const onSubmit = (data) =>{
         console.log("ccdcdcd",data)
         axios.
-        post('https://react-rails-api-demo.herokuapp.com/api/v1/signin',{user:data})
+        post('http://127.0.0.1:8000/store/userlogin/',data)
         .then((res) => {console.log("first",res.data)
         setUser(res.data)
         localStorage.setItem("user-info", JSON.stringify(res.data));
@@ -26,7 +27,7 @@ const [user,setUser] = useState();
             { position: toast.POSITION.TOP_RIGHT })
     } else {
         if (user &&user.length !== 0 ) {
-            toast.success(`${user.message[0]}`,
+            toast.success(`${user.message}`,
                 { position: toast.POSITION.TOP_RIGHT })
                 window.location.href = "/dashboard";
         }
@@ -44,11 +45,12 @@ const [user,setUser] = useState();
  <img src="https://images.unsplash.com/photo-1566888596782-c7f41cc184c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80" class="img-fluid" style={{ minHeight:"100px" }} />  
  </div>  
  <div class="col-md-6 bg-white p-5">  
- <h3 class="pb-3">Login Form</h3>  
- <div class="form-style">  
+ <h3 className='form-login'>Login Form</h3>  
+ <div className="form-style">  
  <form className="formWrapper" onSubmit={handleSubmit(onSubmit)}>  
-  <div class="form-group pb-3">    
-  <label>Email</label>
+   
+ <label>Email</label>
+  <div className="form-group pb-3">  
               <input
                 type="email"
                 className="form-control"
@@ -56,9 +58,9 @@ const [user,setUser] = useState();
                 {...register("email",{required : true})}
               />
               {errors.email && <p>email is required.</p>}
-  </div>  
-  <div class="form-group pb-3">    
+  </div>     
   <label>Password</label>
+  <div class="form-group pb-3"> 
               <input
                 type="password"
                 className="form-control"

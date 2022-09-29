@@ -19,6 +19,7 @@
     width:150%;
     float: right;
     margin-left: 100px;
+    margin-top: -60px;
 }
 .rowC{
     display:flex;
@@ -37,6 +38,7 @@
     margin-left: 0px;
     display: list-item;
     font-size: x-large;
+    float: left;
 }
 
 .header{

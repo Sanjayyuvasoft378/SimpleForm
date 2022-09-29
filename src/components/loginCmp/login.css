@@ -3,7 +3,7 @@ body{
     }  
     .form-style input{  
          border:0;  
-         height:50px;  
+         height:70px;  
          border-radius:0;  
     border-bottom:1px solid #ebebeb;       
     }  
@@ -13,6 +13,12 @@ body{
     outline:0;  
     background-color:#ebebeb;       
     }  
+
+    .label {
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      float: left;
+  }
     .sideline {  
       display: flex;  
       width: 100%;  
@@ -20,7 +26,11 @@ body{
       align-items: center;  
       text-align: center;  
          color:#ccc;  
-    }  
+    } 
+    .pb-3, .py-3 {
+      padding-bottom: 1rem!important;
+      text-align: center;
+      margin-left: 20px;}
     button{  
     height:50px;       
     }  
@@ -34,3 +44,10 @@ body{
     .sideline:after {  
       margin: 0 0 0 20px;  
     }  
+
+    .form-login {
+      padding-bottom: 1rem!important;
+      text-align: center;
+      margin-left: -39px;
+      width: 31rem;
+}

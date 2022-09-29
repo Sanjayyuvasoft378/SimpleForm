@@ -10,10 +10,9 @@ function Dashboard() {
   const [data, setData] = useState();
   const Token = localStorage.getItem("token");
   axios
-    .get("https://react-rails-api-demo.herokuapp.com/api/v1/users", {
-      headers: { Authorization: `Bearer ${Token}` },
-    })
+    .get("http://127.0.0.1:8000/store/CategoriesListAPI/")
     .then((res) => {
+      console.log("object", res.data);
       setData(res.data);
     });
   return (
@@ -25,13 +24,13 @@ function Dashboard() {
         <thead>
           <tr>
             <th scope="col">Id</th>
-            <th scope="col">Email</th>
-            <th scope="col">created_at</th>
-            <th scope="col">updated_at</th>
+            <th scope="col">categoryName</th>
+            <th scope="col">description</th>
+            <th scope="col">StatusText</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
-        {data?.users?.map((item, index) => {
+        {data?.map((item, index) => {
           return (
             <tbody>
               <tr key={index}>
@@ -39,13 +38,13 @@ function Dashboard() {
                   <p>{item.id}</p>
                 </td>
                 <td>
-                  <p>{item.email}</p>
+                  <p>{item.categoryName}</p>
                 </td>
                 <td>
-                  <p>{item.created_at}</p>
+                  <p>{item.description}</p>
                 </td>
                 <td>
-                  <p>{item.updated_at}</p>
+                  <p>{item.statusText}</p>
                 </td>
                 <td>
                   {" "}

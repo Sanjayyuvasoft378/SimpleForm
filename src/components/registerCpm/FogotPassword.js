@@ -32,7 +32,7 @@ function FogotPassword() {
  <div class="form-style">  
  <form className="formWrapper" onSubmit={handleSubmit(onSubmit)}>  
   <div class="form-group pb-3">    
-  <label>New Password</label>
+  <label className='label'>New Password</label>
               <input
                 type="pasword"
                 className="form-control"
@@ -42,7 +42,7 @@ function FogotPassword() {
               {errors.email && <p>Password is required.</p>}
   </div>  
   <div class="form-group pb-3">    
-  <label>Re-Password</label>
+  <label className='label'>Re-Password</label>
               <input
                 type="password"
                 className="form-control"
