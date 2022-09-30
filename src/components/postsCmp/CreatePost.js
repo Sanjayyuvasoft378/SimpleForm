@@ -22,7 +22,7 @@ export const CreatePost = () => {
     <div className="container">
       <form className="formWrapper" onSubmit={handleSubmit(onSubmit)}>
         <h4>Create Your Post Here </h4>
-        <div className="formdata">
+        <div className="form-left">
         <label htmlFor="">categoryName</label>
         <br />
         <input {...register("categoryName", { required: "enter categoryName" })} />

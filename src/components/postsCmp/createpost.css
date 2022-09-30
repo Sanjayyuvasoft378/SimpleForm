@@ -1,4 +1,4 @@
-/* #########  CREATE POST  CSS */
+#########  CREATE POST  CSS
 
 .formWrapper{
     background-color: antiquewhite;
@@ -21,14 +21,17 @@
   }
   .rgsBtn{
      display: block;
-      margin-left: 190px;
-      margin-top: 20px;
+      margin-left: 25rem;
+      margin-top: -5px;
        background-color: rgb(64, 64, 231);
     }
-
+.form-left{
+  margin-left: 20rem;
+}
     .h4, h4 {
-        font-size: 1.5rem;
-        text-align: center;
-    }
+      font-size: 1.5rem;
+      text-align: center;
+      margin-right: 238px;
+  }
     /* CREATE POST END HERE */
 
