@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
+import { LocalActivity } from "@material-ui/icons";
 
 function FogotPassword() {
     const navigate = useNavigate();
@@ -12,9 +13,10 @@ function FogotPassword() {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    const Token = localStorage.getItem('token')
     axios
-      .post("https://react-rails-api-demo.herokuapp.com/api/v1/signup", {
-        user: data,
+      .post("http://127.0.0.1:8000/account/changePassword/", data ,{
+        headers:{"Authorization":`Bearer ${Token}`}
       })
       .then((res) => console.log(res.data));
   };
@@ -32,14 +34,14 @@ function FogotPassword() {
  <div class="form-style">  
  <form className="formWrapper" onSubmit={handleSubmit(onSubmit)}>  
   <div class="form-group pb-3">    
-  <label className='label'>New Password</label>
+  <label className='label'>Password</label>
               <input
                 type="pasword"
                 className="form-control"
-                placeholder="Enter New Password"
-                {...register("newPassword",{required : true})}
+                placeholder="Enter Password"
+                {...register("password",{required : true})}
               />
-              {errors.email && <p>Password is required.</p>}
+              {errors.password && <p>Password is required.</p>}
   </div>  
   <div class="form-group pb-3">    
   <label className='label'>Re-Password</label>
@@ -47,9 +49,9 @@ function FogotPassword() {
                 type="password"
                 className="form-control"
                 placeholder="Re-Enter Password"
-                {...register("reEnterPassword",{required : true})}
+                {...register("password2",{required : true})}
               />
-              {errors.reEnterPassword && <p>Re-password is required.</p>}
+              {errors.password2 && <p>Re-password is required.</p>}
   </div>  
   
    <div class="pb-2">  

@@ -20,6 +20,16 @@
     float: right;
     margin-left: 100px;
     margin-top: -60px;
+
+
+.img {
+    vertical-align: middle;
+    border-radius: 83px;
+    /* float: right; */
+    position: absolute;
+    left: 80rem;
+    bottom: 15rem;
+    width: 57px;
 }
 .rowC{
     display:flex;

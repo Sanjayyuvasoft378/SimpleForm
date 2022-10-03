@@ -11,7 +11,7 @@ const [user,setUser] = useState();
     const onSubmit = (data) =>{
         console.log("ccdcdcd",data)
         axios.
-        post('http://127.0.0.1:8000/store/userlogin/',data)
+        post('http://127.0.0.1:8000/account/login/',data)
         .then((res) => {console.log("first",res.data)
         setUser(res.data)
         localStorage.setItem("user-info", JSON.stringify(res.data));

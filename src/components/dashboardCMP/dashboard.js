@@ -3,7 +3,7 @@ import "../registerCpm/Register.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import PaginationPage from "../PaginationPage";
-
+import adminImgae from '../../admin.png'
 
 function Dashboard() {
   const Navigate = useNavigate();
@@ -17,6 +17,7 @@ function Dashboard() {
     });
   return (
     <div className="header">
+      <img src={adminImgae} alt="adminImage" />
       <button onClick={()=> Navigate('/addpost')} className="addnewuser_btn">Add User</button>
       <h1>User Dashboard</h1>
       

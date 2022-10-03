@@ -7,8 +7,13 @@ import "./Register.css";
 function Registrations() {
   const onSubmit = (data) => {
     axios
-      .post("http://127.0.0.1:8000/store/usersignup/",data)
-      .then((res) => console.log(res.data));
+      .post("http://127.0.0.1:8000/account/register/",data)
+      .then((res) => {
+        console.log(res.data)
+        localStorage.setItem('userInfo',JSON.stringify(res.data))
+        localStorage.setItem('token',JSON.stringify(res?.data?.token))
+      } 
+      );
 
   };
 
@@ -25,49 +30,13 @@ function Registrations() {
               <h3 style={{ width:"500px" ,boxSizing: "border-box" }}>Register Here!!!</h3>
             </div>
             <div className="form-group">
-              <label>First Name</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Enter first name"
-                {...register("firstName", { required: "enter firstname" })} />
-        {errors.firstName && <p>first name is required.</p>}
-            </div>
-            <div className="form-group">
-              <label>Last Name</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Enter Last Name"
-                {...register("lastName", { required: "enter last name" })} />
-        {errors.lastName && <p>last name is required.</p>}
-            </div>
-            <div className="form-group">
               <label>Email</label>
               <input
                 type="email"
                 className="form-control"
-                placeholder="Enter email"
-                {...register("email", { required: "enter email address" })} />
-        {errors.email && <p>Email is required.</p>}
-            </div>
-            <div className="form-group">
-              <label>Mobile No.</label>
-              <input
-                type="number"
-                className="form-control"
-                placeholder="Enter mobile No"
-                {...register("mobileNo", { required: "enter Mobile NO " })} />
-        {errors.mobileNo && <p>Mobile No is required.</p>}
-            </div>
-            <div className="form-group">
-              <label>Address</label>
-              <input
-                type="Address"
-                className="form-control"
-                placeholder="Enter Address"
-                {...register("Address", { required: "enter address" })} />
-        {errors.Address && <p>Address is required.</p>}
+                placeholder="Enter Email"
+                {...register("email", { required: "enter email" })} />
+        {errors.firstName && <p>Email is required.</p>}
             </div>
             <div className="form-group">
               <label>Password</label>
@@ -75,8 +44,35 @@ function Registrations() {
                 type="password"
                 className="form-control"
                 placeholder="Enter Password"
-                {...register("password", { required: "enter a password" })} />
-        {errors.password && <p>Password is required.</p>}
+                {...register("password", { required: "enter password" })} />
+        {errors.lastName && <p>password is required.</p>}
+            </div>
+            <div className="form-group">
+              <label>Confirm password</label>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Enter Re-Enter password"
+                {...register("password2", { required: "enter password2" })} />
+        {errors.password2 && <p>password2 is required.</p>}
+            </div>
+            <div className="form-group">
+              <label>Name</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter Name"
+                {...register("name", { required: "enter Name " })} />
+        {errors.name && <p>Name is required.</p>}
+            </div>
+            <div className="form-group">
+              <label>TC</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter Tc"
+                {...register("tc", { required: "enter tc" })} />
+        {errors.tc && <p>Tc is required.</p>}
             </div>
             
           <button  type="submit" className="btn btn-primary">
