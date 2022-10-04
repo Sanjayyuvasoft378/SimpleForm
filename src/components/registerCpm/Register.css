@@ -15,22 +15,43 @@
 .form-group{
     width: 200%;
 }
+
 .image {
     width:150%;
     float: right;
     margin-left: 100px;
     margin-top: -60px;
 
-
+}
 .img {
     vertical-align: middle;
     border-radius: 83px;
     /* float: right; */
     position: absolute;
     left: 80rem;
-    bottom: 15rem;
+    bottom: 32rem;
     width: 57px;
+    background-color: burlywood;
 }
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+  }
+.myaccount-btn{
+    position: fixed;
+    float: right;
+    left: 73rem;
+    bottom: 515px;
+}
+
 .rowC{
     display:flex;
      flex-direction:row;
@@ -65,3 +86,48 @@
     background: cadetblue;
     margin-left: -120px;
 }
+
+
+
+/* dropdown css */
+.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    position: fixed;
+    left: 76rem;
+    bottom: 10rem;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    position: absolute;
+    left: 34rem;
+    bottom: -6rem;
+    border-radius: 15px;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import Logout from './components/loginCmp/Logout';
 import CreatePost from './components/postsCmp/CreatePost';
 import PaginationPage from './components/PaginationPage';
-
+import Home from './components/dashboardCMP/Home';
 function App() {
   const user_token = localStorage.getItem('token')
  
@@ -19,7 +19,7 @@ function App() {
     <div>
       {user_token ?
       <>
-      <Link to="/"><strong>Home</strong></Link>&nbsp;&nbsp;
+      <Link to="/home"><strong>Home</strong></Link>&nbsp;&nbsp;
     <Link to="/dashboard"><strong>Dashboard</strong></Link>&nbsp;&nbsp;
     <Link to="/logout"><strong>Logout</strong></Link>&nbsp;&nbsp;
 
@@ -43,6 +43,7 @@ function App() {
         <Route path='/logout' element={<Logout/>} />
         <Route path='/addpost' element={<CreatePost/>} />
         <Route path='/page' element={<PaginationPage/>} />
+        <Route path='/home' element={<Home/>} />
       </Routes>
     
     

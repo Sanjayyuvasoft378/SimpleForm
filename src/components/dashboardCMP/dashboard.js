@@ -3,24 +3,33 @@ import "../registerCpm/Register.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import PaginationPage from "../PaginationPage";
-import adminImgae from '../../admin.png'
+import adminImgae from "../../admin.png";
 
 function Dashboard() {
   const Navigate = useNavigate();
   const [data, setData] = useState();
   const Token = localStorage.getItem("token");
-  axios
-    .get("http://127.0.0.1:8000/store/CategoriesListAPI/")
-    .then((res) => {
-      console.log("object", res.data);
-      setData(res.data);
-    });
+  axios.get("http://127.0.0.1:8000/store/CategoriesListAPI/").then((res) => {
+    console.log("object", res.data);
+    setData(res.data);
+  });
   return (
     <div className="header">
-      <img src={adminImgae} alt="adminImage" />
-      <button onClick={()=> Navigate('/addpost')} className="addnewuser_btn">Add User</button>
-      <h1>User Dashboard</h1>
       
+      <div className="dropdown">
+        <button type="button" className="myaccount-btn"> My Account</button>
+        <div className="dropdown-content">
+          <a href="/">Sign in</a>
+          <a href="/register">Sign up</a>
+        </div>
+        </div>
+      
+      <img className="img" src={adminImgae} alt="adminImage" />
+      <button onClick={() => Navigate("/addpost")} className="addnewuser_btn">
+        Add User
+      </button>
+      <h1>User Dashboard</h1>
+
       <table className="table table-dark">
         <thead>
           <tr>
@@ -65,7 +74,6 @@ function Dashboard() {
               </tr>
             </tbody>
           );
-          
         })}
       </table>
       <PaginationPage />
