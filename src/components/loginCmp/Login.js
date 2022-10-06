@@ -12,11 +12,10 @@ const [user,setUser] = useState();
         console.log("ccdcdcd",data)
         axios.
         post('http://127.0.0.1:8000/account/login/',data)
-        .then((res) => {console.log("first",res.data)
+        .then((res) => {console.log("first",res.data.token)
         setUser(res.data)
         localStorage.setItem("user-info", JSON.stringify(res.data));
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("user_id", res.data.user.id);})
+      localStorage.setItem("token", res.data.token.access)});
     
     }
     console.log("check response",user)

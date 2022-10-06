@@ -9,6 +9,8 @@ import Logout from './components/loginCmp/Logout';
 import CreatePost from './components/postsCmp/CreatePost';
 import PaginationPage from './components/PaginationPage';
 import Home from './components/dashboardCMP/Home';
+import Header from './components/header/Header';
+import Sidebar from './components/Sidebar';
 function App() {
   const user_token = localStorage.getItem('token')
  
@@ -17,6 +19,9 @@ function App() {
     <div className="App">
        <>
     <div>
+
+      {/* <Header /> */}
+      <Sidebar />
       {user_token ?
       <>
       <Link to="/home"><strong>Home</strong></Link>&nbsp;&nbsp;

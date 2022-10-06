@@ -9,7 +9,8 @@ function Dashboard() {
   const Navigate = useNavigate();
   const [data, setData] = useState();
   const Token = localStorage.getItem("token");
-  axios.get("http://127.0.0.1:8000/store/CategoriesListAPI/").then((res) => {
+  axios.get("http://127.0.0.1:8000/account/maincategory/",{
+  headers:{"Authorization":`Bearer ${Token}`}}).then((res) => {
     console.log("object", res.data);
     setData(res.data);
   });

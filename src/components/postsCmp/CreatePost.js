@@ -3,13 +3,16 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import './createpost.css';
+import { BatteryAlert } from "@material-ui/icons";
+import { type } from "@testing-library/user-event/dist/type";
 
 export const CreatePost = () => {
-
+const Token = localStorage.getItem('token')
 
   const onSubmit = (data) => {
     axios
-      .post("http://127.0.0.1:8000/store/maincategory/", data)
+      .post("http://127.0.0.1:8000/account/maincategory/", data,{
+      headers:{"Authorization":`Bearer${Token}`}})
       .then((res) => console.log(res.data));
   };
 
@@ -37,6 +40,11 @@ export const CreatePost = () => {
 
         <br />
 
+        <label htmlFor="">Image</label>
+        <br />
+        <input type= 'file' {...register("categoryImage", { required: "enter categoryImage" })} />
+        {errors.categoryImage && <p>categoryImage is required.</p>}
+<br />
         <label htmlFor="">StatusText</label>
         <br />
         <select name="statusText" id="statusText"
