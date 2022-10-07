@@ -26,12 +26,11 @@
 .img {
     vertical-align: middle;
     border-radius: 83px;
-    /* float: right; */
-    position: absolute;
-    left: 80rem;
-    bottom: 32rem;
-    width: 57px;
+    width: 62px;
     background-color: burlywood;
+    float: right;
+    margin-top: -69px;
+    margin-right: -5rem;
 }
 .dropdown-item {
     display: block;
@@ -46,10 +45,13 @@
     border: 0;
   }
 .myaccount-btn{
+    width: 7rem;
     position: fixed;
     float: right;
-    left: 73rem;
-    bottom: 515px;
+    left: 115rem;
+    margin-top: -5rem;
+    margin-right: -5rem;
+    border-radius: 18px;
 }
 
 .rowC{
@@ -73,13 +75,15 @@
 }
 
 .header{
-    width: 64%;
-    margin-left: 17%;
+    width: 80%;
+    margin-left: 15%;
+    margin-top: -24px;
 }
 
 .addnewuser_btn{
     float: right;
     margin-top: 20px;
+    margin-right: 3rem;
 }
 .h3, h3 {
     font-size: 1.75rem;
@@ -114,8 +118,8 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     position: absolute;
-    left: 34rem;
-    bottom: -6rem;
+    left: 3rem;
+    bottom: 6rem;
     border-radius: 15px;
   }
   

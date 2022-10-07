@@ -14,6 +14,16 @@ function Dashboard() {
     console.log("object", res.data);
     setData(res.data);
   });
+
+  const MaincateDelete =() =>{
+    axios.delete("http://127.0.0.1:8000/account/maincategory/",{
+  headers:{"Authorization":`Bearer ${Token}`}}).then((res) => {
+    console.log("object", res.data);
+    setData(res.data);
+  });
+
+  }
+
   return (
     <div className="header">
       
@@ -27,9 +37,9 @@ function Dashboard() {
       
       <img className="img" src={adminImgae} alt="adminImage" />
       <button onClick={() => Navigate("/addpost")} className="addnewuser_btn">
-        Add User
+        Add Maincategory
       </button>
-      <h1>User Dashboard</h1>
+      <h1>Main Categories</h1>
 
       <table className="table table-dark">
         <thead>
@@ -38,6 +48,7 @@ function Dashboard() {
             <th scope="col">categoryName</th>
             <th scope="col">description</th>
             <th scope="col">StatusText</th>
+            <th scope="col">categoryimage</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -55,11 +66,14 @@ function Dashboard() {
                   <p>{item.description}</p>
                 </td>
                 <td>
+                  <p>{item.categoryImage}</p>
+                </td>
+                <td>
                   <p>{item.statusText}</p>
                 </td>
                 <td>
                   {" "}
-                  <button style={{ backgroundColor: "green", padding: "7px" }}>
+                  <button onClick={MaincateDelete} style={{ backgroundColor: "green", padding: "7px" }}>
                     View
                   </button>
                   &nbsp;

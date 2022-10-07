@@ -11,6 +11,7 @@ import PaginationPage from './components/PaginationPage';
 import Home from './components/dashboardCMP/Home';
 import Header from './components/header/Header';
 import Sidebar from './components/Sidebar';
+import MainCategory from './components/Categories/MainCategory';
 function App() {
   const user_token = localStorage.getItem('token')
  
@@ -21,9 +22,10 @@ function App() {
     <div>
 
       {/* <Header /> */}
-      <Sidebar />
       {user_token ?
       <>
+
+<Sidebar />
       <Link to="/home"><strong>Home</strong></Link>&nbsp;&nbsp;
     <Link to="/dashboard"><strong>Dashboard</strong></Link>&nbsp;&nbsp;
     <Link to="/logout"><strong>Logout</strong></Link>&nbsp;&nbsp;
@@ -49,6 +51,7 @@ function App() {
         <Route path='/addpost' element={<CreatePost/>} />
         <Route path='/page' element={<PaginationPage/>} />
         <Route path='/home' element={<Home/>} />
+        <Route path='/maincategory' element={<MainCategory/>} />
       </Routes>
     
     

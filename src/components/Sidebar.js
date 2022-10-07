@@ -6,7 +6,7 @@ import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
 import { IconContext } from "react-icons/lib";
-  
+
 const Nav = styled.div`
   background: #15171c;
   height: 80px;
@@ -14,7 +14,7 @@ const Nav = styled.div`
   justify-content: flex-start;
   align-items: center;
 `;
-  
+
 const NavIcon = styled(Link)`
   margin-left: 2rem;
   font-size: 2rem;
@@ -23,7 +23,7 @@ const NavIcon = styled(Link)`
   justify-content: flex-start;
   align-items: center;
 `;
-  
+
 const SidebarNav = styled.nav`
   background: #15171c;
   width: 250px;
@@ -36,16 +36,16 @@ const SidebarNav = styled.nav`
   transition: 350ms;
   z-index: 10;
 `;
-  
+
 const SidebarWrap = styled.div`
   width: 100%;
 `;
-  
+
 const Sidebar = () => {
-  const [sidebar, setSidebar] = useState(false);
-  
+  const [sidebar, setSidebar] = useState(true);
+
   const showSidebar = () => setSidebar(!sidebar);
-  
+
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
@@ -53,14 +53,8 @@ const Sidebar = () => {
           <NavIcon to="#">
             <FaIcons.FaBars onClick={showSidebar} />
           </NavIcon>
-          <h1
-            style={{ textAlign: "center", 
-                     marginLeft: "30rem", 
-                     color: "green" }}
-          >
-            <center>
-            Ecommerce.Com
-            </center>
+          <h1 style={{ position:"fixed", marginLeft: "56rem", color: "green" }}>
+            <center>Ecommerce.Com</center>
           </h1>
         </Nav>
         <SidebarNav sidebar={sidebar}>
@@ -77,5 +71,5 @@ const Sidebar = () => {
     </>
   );
 };
-  
+
 export default Sidebar;

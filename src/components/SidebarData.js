@@ -5,6 +5,37 @@ import * as IoIcons from "react-icons/io";
 import * as RiIcons from "react-icons/ri";
   
 export const SidebarData = [
+
+  {
+    title: "Home",
+    path: "/dashboard",
+    icon: <FaIcons.FaPhone />,
+  },
+  {
+    title: "Categories",
+    path: "/maincategory",
+    icon: <AiIcons.AiFillHome />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+  
+    subNav: [
+      {
+        title: "Main Category",
+        path: "/dashboard",
+        icon: <IoIcons.IoIosPaper />,
+      },
+      {
+        title: "Sub Category",
+        path: "/categories/subcategory/",
+        icon: <IoIcons.IoIosPaper />,
+      },
+      {
+        title: "Child Category",
+        path: "/categories/childcategory/",
+        icon: <IoIcons.IoIosPaper />,
+      },
+    ],
+  },
   {
     title: "About Us",
     path: "/about-us",
@@ -81,6 +112,10 @@ export const SidebarData = [
   {
     title: "Support",
     path: "/support",
+    icon: <IoIcons.IoMdHelpCircle />,
+  },{
+    title: "Logout",
+    path: "/logout",
     icon: <IoIcons.IoMdHelpCircle />,
   },
 ];
