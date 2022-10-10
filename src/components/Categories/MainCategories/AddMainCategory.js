@@ -1,27 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import "./createpost.css";
-import { BatteryAlert } from "@material-ui/icons";
-import { type } from "@testing-library/user-event/dist/type";
+import "../categories.css";
 
-export const CreatePost = () => {
- 
+
+function AddMainCategory() {
   const Token = localStorage.getItem("token");
-  // const [state, setState] = useState(); 
   const onSubmit = (data) => {
     // const img_url = URL.createObjectURL(state)
     // console.log("ssssss",img_url);
     // const setData = {...data,categoryImage:img_url}
-    console.log("object",data.categoryImage[0]);
     const setData = {...data,categoryImage:data.categoryImage[0]}
-    console.log('ddddddddddddddddd',setData)
     axios
       .post("http://127.0.0.1:8000/account/maincategory/", setData, {
         headers: { Authorization: `Bearer ${Token}` },
       })
-      .then((res) => console.log("11111111111",res.data));
+      .then((res) => console.log(res.data));
   };
   const {
     register,
@@ -96,4 +90,5 @@ export const CreatePost = () => {
   );
  
 };
-export default CreatePost;
+
+export default AddMainCategory

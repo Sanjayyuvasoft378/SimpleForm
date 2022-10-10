@@ -11,7 +11,11 @@ import PaginationPage from './components/PaginationPage';
 import Home from './components/dashboardCMP/Home';
 import Header from './components/header/Header';
 import Sidebar from './components/Sidebar';
-import MainCategory from './components/Categories/MainCategory';
+import MainCategoryList from './components/Categories/MainCategories/MainCategoryList';
+import AddMainCategory from './components/Categories/MainCategories/AddMainCategory';
+import SubcategoryList from './components/Categories/SubCategories/SubcategoryList';
+import AddSubCategory from './components/Categories/SubCategories/AddSubCategory';
+import ChildCategoriesList from './components/Categories/ChildCategory/ChildCategoriesList';
 function App() {
   const user_token = localStorage.getItem('token')
  
@@ -51,7 +55,12 @@ function App() {
         <Route path='/addpost' element={<CreatePost/>} />
         <Route path='/page' element={<PaginationPage/>} />
         <Route path='/home' element={<Home/>} />
-        <Route path='/maincategory' element={<MainCategory/>} />
+        {/* <Route path='/maincategory' element={<MainCategory/>} /> */}
+        <Route path='/maincatlist' element={<MainCategoryList/>} />
+        <Route path='/addmaincate' element={<AddMainCategory/>} />
+        <Route path='/subcatlist' element={<SubcategoryList/>} />
+        <Route path='/addsubcat' element={<AddSubCategory/>} />
+        <Route path='/childcatelist' element={<ChildCategoriesList/>} />
       </Routes>
     
     
