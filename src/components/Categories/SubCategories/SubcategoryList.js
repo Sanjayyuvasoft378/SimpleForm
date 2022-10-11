@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../categories.css";
+import "../../categories.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import PaginationPage from "../../PaginationPage";

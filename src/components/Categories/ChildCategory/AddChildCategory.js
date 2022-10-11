@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import "../../categories.css";
 
 
-function AddSubCategory() {
+function AddChildCategory() {
     const Token = localStorage.getItem("token");
     const onSubmit = (data) => {
       // const img_url = URL.createObjectURL(state)
@@ -12,7 +12,7 @@ function AddSubCategory() {
       // const setData = {...data,categoryImage:img_url}
       const setData = {...data,categoryImage:data.categoryImage[0]}
       axios
-        .post("http://127.0.0.1:8000/account/subcategory/", setData, {
+        .post("http://127.0.0.1:8000/account/childcategory/", setData, {
           headers: { Authorization: `Bearer ${Token}` },
         })
         .then((res) => console.log(res.data));
@@ -24,12 +24,12 @@ function AddSubCategory() {
     } = useForm();
     return (
       <>
-      <h1>Add Sub Category here...!!!</h1>
+      <h1>Add Child Category here...!!!</h1>
         <div className="container">
           <form className="formWrapper" onSubmit={handleSubmit(onSubmit)}>
-            <div className="row">
+          <div className="row">
               <div className="col-25">
-                <label htmlFor="fname">MainCategoryId</label>
+                <label htmlFor="fname">MainCategory Name</label>
               </div>
               <div className="col-75">
                 <input
@@ -37,7 +37,20 @@ function AddSubCategory() {
                     required: "enter mainCategoryId",
                   })}
                 />
-                {errors.mainCategoryId && <p>MainCategory Id is required.</p>}
+                {errors.mainCategoryId && <p>mainCategoryId is required.</p>}
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-25">
+                <label htmlFor="fname">SubCategory Name</label>
+              </div>
+              <div className="col-75">
+                <input
+                  {...register("subCategoryId", {
+                    required: "enter subCategoryId",
+                  })}
+                />
+                {errors.subCategoryId && <p>subCategoryId is required.</p>}
               </div>
             </div>
             <div className="row">
@@ -103,5 +116,4 @@ function AddSubCategory() {
     );
    
   };
-
-export default AddSubCategory
+export default AddChildCategory

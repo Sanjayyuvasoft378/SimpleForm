@@ -2,20 +2,20 @@ import React, { useState } from "react";
 import "../categories.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import PaginationPage from "../../PaginationPage";
-import adminImgae from "../admin.png";
+// import PaginationPage from "../../PaginationPage";
+import adminImgae from "./admin.png";
 function Product() {
     const Navigate = useNavigate();
     const [data, setData] = useState();
     const Token = localStorage.getItem("token");
-    axios.get("http://127.0.0.1:8000/account/maincategory/",{
+    axios.get("http://127.0.0.1:8000/account/product/",{
     headers:{"Authorization":`Bearer ${Token}`}}).then((res) => {
       console.log("object", res.data);
       setData(res.data);
     });
   
     const MaincateDelete =() =>{
-      axios.delete("http://127.0.0.1:8000/account/maincategory/",{
+      axios.delete("http://127.0.0.1:8000/account/product/",{
     headers:{"Authorization":`Bearer ${Token}`}}).then((res) => {
       console.log("object", res.data);
       setData(res.data);
@@ -31,23 +31,29 @@ function Product() {
           <div className="dropdown-content">
             <a href="/">Sign in</a>
             <a href="/register">Sign up</a>
+            <a href="/forgotpassword">Change Password</a>
           </div>
           </div>
         
         <img className="img" src={adminImgae} alt="adminImage" />
-        <button onClick={() => Navigate("/addmaincate")} className="addnewuser_btn">
-          Add Maincategory
+        <button onClick={() => Navigate("/addproduct")} className="addnewuser_btn">
+          Add Product
         </button>
-        <h1>Main Categories</h1>
+        <h1>Products</h1>
   
         <table className="table table-dark">
           <thead>
             <tr>
               <th scope="col">Id</th>
-              <th scope="col">categoryName</th>
-              <th scope="col">description</th>
-              <th scope="col">StatusText</th>
-              <th scope="col">categoryimage</th>
+              <th scope="col">MainCategoryName</th>
+              <th scope="col">SubCategoryName</th>
+              <th scope="col">ChildCategoryName</th>
+              <th scope="col">ProductName</th>
+              <th scope="col">ProductImage</th>
+              <th scope="col">Description</th>
+              {/* <th scope="col">MRP</th> */}
+              <th scope="col">Price</th>
+              <th scope="col">Qty</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -59,16 +65,28 @@ function Product() {
                     <p>{item.id}</p>
                   </td>
                   <td>
-                    <p>{item.categoryName}</p>
+                    <p>{item.mainCategoryId}</p>
+                  </td>
+                  <td>
+                    <p>{item.subCategoryId}</p>
+                  </td>
+                  <td>
+                    <p>{item.childCategoryId}</p>
+                  </td>
+                  <td>
+                    <p>{item.productName}</p>
+                  </td>
+                  <td>
+                    <img src="{item.productImage}" alt="image" />
                   </td>
                   <td>
                     <p>{item.description}</p>
                   </td>
                   <td>
-                    <p>{item.categoryImage}</p>
+                    <p>{item.price}</p>
                   </td>
                   <td>
-                    <p>{item.statusText}</p>
+                    <p>{item.qty}</p>
                   </td>
                   <td>
                     {" "}
@@ -90,7 +108,7 @@ function Product() {
             );
           })}
         </table>
-        <PaginationPage />
+        {/* <PaginationPage /> */}
       </div>
     );
   }

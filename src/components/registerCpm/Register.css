@@ -81,9 +81,11 @@
 }
 
 .addnewuser_btn{
-    float: right;
+    float: left;
     margin-top: 20px;
-    margin-right: 3rem;
+    margin-right: 2rem;
+    margin-left: 1rem;
+    background-color: orangered;
 }
 .h3, h3 {
     font-size: 1.75rem;

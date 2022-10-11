@@ -39,7 +39,7 @@ export const SidebarData = [
 
   {
     title: "Product",
-    path: "/contact",
+    path: "/product",
     icon: <FaIcons.FaPhone />,
   },
   {

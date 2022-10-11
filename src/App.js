@@ -16,6 +16,9 @@ import AddMainCategory from './components/Categories/MainCategories/AddMainCateg
 import SubcategoryList from './components/Categories/SubCategories/SubcategoryList';
 import AddSubCategory from './components/Categories/SubCategories/AddSubCategory';
 import ChildCategoriesList from './components/Categories/ChildCategory/ChildCategoriesList';
+import AddChildCategory from './components/Categories/ChildCategory/AddChildCategory';
+import AddProduct from './components/Products/AddProduct';
+import Product from './components/Products/Product';
 function App() {
   const user_token = localStorage.getItem('token')
  
@@ -61,6 +64,9 @@ function App() {
         <Route path='/subcatlist' element={<SubcategoryList/>} />
         <Route path='/addsubcat' element={<AddSubCategory/>} />
         <Route path='/childcatelist' element={<ChildCategoriesList/>} />
+        <Route path='/addchildcat' element={<AddChildCategory/>} />
+        <Route path='/addproduct' element={<AddProduct/>}/>
+        <Route path='/product' element={<Product/>}/>
       </Routes>
     
     

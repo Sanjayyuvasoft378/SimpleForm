@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../categories.css";
+import "../../categories.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import PaginationPage from "../../PaginationPage";
@@ -65,10 +65,11 @@ function MainCategoryList() {
                     <p>{item.description}</p>
                   </td>
                   <td>
-                    <p>{item.categoryImage}</p>
+                    <p>{item.statusText}</p>
                   </td>
                   <td>
-                    <p>{item.statusText}</p>
+                    <img src="{item.categoryImage}" alt="image" />
+                    <p></p>
                   </td>
                   <td>
                     {" "}

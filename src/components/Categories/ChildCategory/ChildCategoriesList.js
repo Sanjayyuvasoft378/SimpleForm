@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../categories.css";
+import "../../categories.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import PaginationPage from "../../PaginationPage";
@@ -35,7 +35,7 @@ function ChildCategoriesList() {
           </div>
         
         <img className="img" src={adminImgae} alt="adminImage" />
-        <button onClick={() => Navigate("/addmaincate")} className="addnewuser_btn">
+        <button onClick={() => Navigate("/addchildcat")} className="addnewuser_btn">
           Add Childcategory
         </button>
         <h1>Child Categories</h1>
@@ -73,11 +73,11 @@ function ChildCategoriesList() {
                     <p>{item.description}</p>
                   </td>
                   <td>
-                    <img src="{item.categoryImage}" alt="Image"/>
-                    <p></p>
+                    <p>{item.statusText}</p>
                   </td>
                   <td>
-                    <p>{item.statusText}</p>
+                    <img src="{item.categoryImage}" alt="Image"/>
+                    <p></p>
                   </td>
                   <td>
                     {" "}

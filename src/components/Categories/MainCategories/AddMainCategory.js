@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import "../categories.css";
+import "../../categories.css";
 
 
 function AddMainCategory() {
