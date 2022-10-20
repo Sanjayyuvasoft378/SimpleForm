@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../categories.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -8,11 +8,13 @@ function ChildCategoriesList() {
     const Navigate = useNavigate();
     const [data, setData] = useState();
     const Token = localStorage.getItem("token");
-    axios.get("http://127.0.0.1:8000/account/childcategory/",{
+    useEffect(()=>{
+      axios.get("http://127.0.0.1:8000/account/childcategory/",{
     headers:{"Authorization":`Bearer ${Token}`}}).then((res) => {
       console.log("object", res.data);
       setData(res.data);
     });
+    },[])
   
     const MaincateDelete =() =>{
       axios.delete("http://127.0.0.1:8000/account/childcategory//",{
@@ -99,7 +101,6 @@ function ChildCategoriesList() {
             );
           })}
         </table>
-        <PaginationPage />
       </div>
     );
   }

@@ -11,11 +11,15 @@ export const CreatePost = () => {
   const Token = localStorage.getItem("token");
   // const [state, setState] = useState(); 
   const onSubmit = (data) => {
+    debugger
+    
+
     // const img_url = URL.createObjectURL(state)
     // console.log("ssssss",img_url);
     // const setData = {...data,categoryImage:img_url}
     console.log("object",data.categoryImage[0]);
-    const setData = {...data,categoryImage:data.categoryImage[0]}
+    const setData = {...data,categoryImage:data.categoryImage[0].name}
+    
     console.log('ddddddddddddddddd',setData)
     axios
       .post("http://127.0.0.1:8000/account/maincategory/", setData, {

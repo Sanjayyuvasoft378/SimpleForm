@@ -96,7 +96,6 @@ function SubcategoryList() {
             );
           })}
         </table>
-        <PaginationPage />
       </div>
     );
   }

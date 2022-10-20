@@ -1,80 +1,84 @@
-import React, { useEffect, useState } from "react";
-import "../registerCpm/Register.css";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Dashboard() {
+function ListOffer() {
+  const Token = localStorage.getItem("token");
+  console.log(1222222,Token)
   const Navigate = useNavigate();
   const [data, setData] = useState();
-  const Token = localStorage.getItem("token");
-  debugger;
-  useEffect(()=>{
-    axios.get("http://127.0.0.1:8000/account/maincategory",{
-  headers:{"Authorization":`Bearer ${Token}`}}).then((res) => {
-    console.log("object", res.data);
-    setData(res.data);
-  });
-  },[])
 
-  const MaincateDelete =() =>{
-    axios.delete("http://127.0.0.1:8000/account/maincategory/",{
-  headers:{"Authorization":`Bearer ${Token}`}}).then((res) => {
-    console.log("object", res.data);
-    setData(res.data);
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8000/account/offers/", {
+        headers:{"Authorization":`Bearer ${Token}`}})
+      .then((res) => {
+        console.log("check my response on console", res.data);
+        setData(res.data);
+      });
   });
 
-  }
+
+
+
+
+
+
 
   return (
     <div className="header">
-      
       <div className="dropdown">
-        <button type="button" className="myaccount-btn"> My Account</button>
+        <button type="button" className="myaccount-btn">
+          {" "}
+          My Account
+        </button>
         <div className="dropdown-content">
           <a href="/">Sign in</a>
           <a href="/register">Sign up</a>
+          <a href="/forgotpassword">Change Password</a>
         </div>
-        </div>
-      
+      </div>
+
       {/* <img className="img" src={adminImgae} alt="adminImage" /> */}
-      <button onClick={() => Navigate("/addpost")} className="addnewuser_btn">
-        Add Maincategory
+      <button onClick={() => Navigate("/addoffer")} className="addnewuser_btn">
+        Add Offer
       </button>
-      <h1>Main Categories</h1>
+      <h1>Plan</h1>
 
       <table className="table table-dark">
         <thead>
           <tr>
             <th scope="col">Id</th>
-            <th scope="col">categoryName</th>
-            <th scope="col">description</th>
+            <th scope="col">Offer Name</th>
+            <th scope="col">Offer Value</th>
+            <th scope="col">Offer Type</th>
             <th scope="col">StatusText</th>
-            <th scope="col">categoryimage</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         {data?.map((item, index) => {
           return (
             <tbody>
-              <tr key={ index }>
+              <tr key={index}>
                 <td>
                   <p>{item.id}</p>
                 </td>
                 <td>
-                  <p>{item.categoryName}</p>
+                  <p>{item.offerName}</p>
                 </td>
                 <td>
-                  <p>{item.description}</p>
+                  <p>{item.offerValue}</p>
                 </td>
                 <td>
-                  <p>{item.categoryImage}</p>
+                  <p>{item.offerType}</p>
                 </td>
                 <td>
                   <p>{item.statusText}</p>
                 </td>
                 <td>
-                  {" "}
-                  <button onClick={MaincateDelete} style={{ backgroundColor: "green", padding: "7px" }}>
+                  <button
+                    style={{ backgroundColor: "green", padding: "7px" }}
+                  >
                     View
                   </button>
                   &nbsp;
@@ -97,4 +101,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default ListOffer;

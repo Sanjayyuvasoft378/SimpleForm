@@ -7,7 +7,7 @@ import ForgotPassword from './components/registerCpm/FogotPassword';
 import { Link } from 'react-router-dom';
 import Logout from './components/loginCmp/Logout';
 import CreatePost from './components/postsCmp/CreatePost';
-import PaginationPage from './components/PaginationPage';
+// import PaginationPage from './components/PaginationPage';
 import Home from './components/dashboardCMP/Home';
 import Header from './components/header/Header';
 import Sidebar from './components/Sidebar';
@@ -19,6 +19,11 @@ import ChildCategoriesList from './components/Categories/ChildCategory/ChildCate
 import AddChildCategory from './components/Categories/ChildCategory/AddChildCategory';
 import AddProduct from './components/Products/AddProduct';
 import Product from './components/Products/Product';
+import AddPlan from './components/Plan/AddPlan';
+
+import Plan from './components/Plan/Plan';
+import ListOffer from './components/offers &discont/ListOffer';
+import AddOffer from './components/offers &discont/AddOffer';
 function App() {
   const user_token = localStorage.getItem('token')
  
@@ -56,7 +61,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard/>} />
         <Route path='/logout' element={<Logout/>} />
         <Route path='/addpost' element={<CreatePost/>} />
-        <Route path='/page' element={<PaginationPage/>} />
+        {/* <Route path='/page' element={<PaginationPage/>} /> */}
         <Route path='/home' element={<Home/>} />
         {/* <Route path='/maincategory' element={<MainCategory/>} /> */}
         <Route path='/maincatlist' element={<MainCategoryList/>} />
@@ -67,6 +72,10 @@ function App() {
         <Route path='/addchildcat' element={<AddChildCategory/>} />
         <Route path='/addproduct' element={<AddProduct/>}/>
         <Route path='/product' element={<Product/>}/>
+        <Route path='/addplan' element={<AddPlan/>} />
+        <Route path='/plan' element={<Plan/>} />
+        <Route path='/offerlist' element={<ListOffer/>} />
+        <Route path='/addoffer' element={<AddOffer/>}/>
       </Routes>
     
     

@@ -13,7 +13,7 @@ export const SidebarData = [
   },
   {
     title: "Categories",
-    path: "/maincategory",
+    path: "#",
     icon: <AiIcons.AiFillHome />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -40,6 +40,12 @@ export const SidebarData = [
   {
     title: "Product",
     path: "/product",
+    icon: <FaIcons.FaPhone />,
+  },
+
+  {
+    title: "Plan",
+    path: "/plan",
     icon: <FaIcons.FaPhone />,
   },
   {
@@ -85,6 +91,27 @@ export const SidebarData = [
       {
         title: "Service 3",
         path: "/services/services3",
+        icon: <IoIcons.IoIosPaper />,
+      },
+    ],
+  },
+
+  {
+    title: "Offers & Discount",
+    path: "#",
+    icon: <AiIcons.AiFillHome />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+  
+    subNav: [
+      {
+        title: "Offer",
+        path: "/offerlist",
+        icon: <IoIcons.IoIosPaper />,
+      },
+      {
+        title: "Discount",
+        path: "/discount",
         icon: <IoIcons.IoIosPaper />,
       },
     ],
