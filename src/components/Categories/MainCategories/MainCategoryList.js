@@ -10,6 +10,11 @@ function MainCategoryList() {
     const [data, setData] = useState();
     const Token = localStorage.getItem("token");
 
+
+    const [search, setSearch] = useState();
+
+    
+
     useEffect(()=>{
       axios.get("http://127.0.0.1:8000/account/maincategory/",{
     headers:{"Authorization":`Bearer ${Token}`}}).then((res) => {
@@ -18,7 +23,15 @@ function MainCategoryList() {
     });
   },[])
    
-  
+  const handleSearch = (e) => {
+    console.log(e.target.value);
+    setSearch(e.target.value);
+  };
+  const results = !search
+    ? data
+    : data?.filter((item) =>
+        item.postName.toLowerCase().includes(search.toLowerCase())
+      );
 
   
     return (
@@ -37,8 +50,17 @@ function MainCategoryList() {
           Add Maincategory
         </button>
         <h1>Main Categories</h1>
+        <div className="InputWrapper">
+        <input
+          type="text"
+          onChange={handleSearch}
+          placeholder="Search Posts"
+          style={{ width: "300px" }}
+        />
+      </div>
   
         <table className="table table-dark">
+        
           <thead>
             <tr>
               <th scope="col">Id</th>

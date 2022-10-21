@@ -13,6 +13,7 @@ const Nav = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  width:15rem;
 `;
 
 const NavIcon = styled(Link)`
@@ -54,7 +55,7 @@ const Sidebar = () => {
             <FaIcons.FaBars onClick={showSidebar} />
           </NavIcon>
           <h1 style={{ position:"fixed", marginLeft: "56rem", color: "green" }}>
-            <center>Ecommerce.Com</center>
+            {/* <center>Ecommerce.Com</center> */}
           </h1>
         </Nav>
         <SidebarNav sidebar={sidebar}>

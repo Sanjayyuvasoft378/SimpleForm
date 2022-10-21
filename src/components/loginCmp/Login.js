@@ -28,7 +28,7 @@ const [user,setUser] = useState();
         if (user &&user.length !== 0 ) {
             toast.success(`${user.message}`,
                 { position: toast.POSITION.TOP_RIGHT })
-                window.location.href = "/dashboard";
+                window.location.href = "/dashboard1";
         }
    }
 }, [user])

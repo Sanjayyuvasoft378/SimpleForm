@@ -7,7 +7,6 @@ function Dashboard() {
   const Navigate = useNavigate();
   const [data, setData] = useState();
   const Token = localStorage.getItem("token");
-  debugger;
   useEffect(()=>{
     axios.get("http://127.0.0.1:8000/account/maincategory",{
   headers:{"Authorization":`Bearer ${Token}`}}).then((res) => {
@@ -61,7 +60,7 @@ function Dashboard() {
                   <p>{item.id}</p>
                 </td>
                 <td>
-                  <p>{item.categoryName}</p>
+                  <img src={item.categoryName} alt='image'/>
                 </td>
                 <td>
                   <p>{item.description}</p>

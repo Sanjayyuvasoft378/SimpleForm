@@ -12,8 +12,8 @@ function AddMainCategory() {
     // const setData = {...data,categoryImage:img_url}
     // const setData = {...data,categoryImage:data.categoryImage[0]}
 
-    data.categoryImage = URL.createObjectURL(data.categoryImage[0]);
-    console.log(122222, data.categoryImage);
+    // data.categoryImage = URL.createObjectURL(data.categoryImage[0]);
+    // console.log(122222, data.categoryImage);
     const setData = { ...data, categoryImage: data.categoryImage };
     console.log(123, setData);
 

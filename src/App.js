@@ -24,6 +24,7 @@ import AddPlan from './components/Plan/AddPlan';
 import Plan from './components/Plan/Plan';
 import ListOffer from './components/offers &discont/ListOffer';
 import AddOffer from './components/offers &discont/AddOffer';
+import Dashboard1 from './components/dashboardCMP/Dashboard1';
 function App() {
   const user_token = localStorage.getItem('token')
  
@@ -37,10 +38,10 @@ function App() {
       {user_token ?
       <>
 
-<Sidebar />
-      <Link to="/home"><strong>Home</strong></Link>&nbsp;&nbsp;
+{/* <Sidebar /> */}
+      {/* <Link to="/home"><strong>Home</strong></Link>&nbsp;&nbsp;
     <Link to="/dashboard"><strong>Dashboard</strong></Link>&nbsp;&nbsp;
-    <Link to="/logout"><strong>Logout</strong></Link>&nbsp;&nbsp;
+    <Link to="/logout"><strong>Logout</strong></Link>&nbsp;&nbsp; */}
 
       </>
       :
@@ -76,6 +77,7 @@ function App() {
         <Route path='/plan' element={<Plan/>} />
         <Route path='/offerlist' element={<ListOffer/>} />
         <Route path='/addoffer' element={<AddOffer/>}/>
+        <Route path='/dashboard1' element={<Dashboard1/>} />
       </Routes>
     
     
